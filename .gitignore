@@ -39,3 +39,7 @@ Thumbs.db
 .coverage
 htmlcov/
 
+#folders
+.graveyard/
+notebooks/.graveyard/
+graveyard.ipynb

@@ -11,6 +11,8 @@ scikit-learn
 # Visualization
 matplotlib
 seaborn
+neo4j-viz
+palettable
 
 # Jupyter
 ipykernel
