@@ -39,6 +39,13 @@ Thumbs.db
 .coverage
 htmlcov/
 
+# Migration scripts
+migrate_supply_chain.py
+alternative.env
+
+# Database dumps
+dump/logisticsmovies.dump
+
 #folders
 .graveyard/
 notebooks/.graveyard/
