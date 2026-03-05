@@ -44,7 +44,7 @@ migrate_supply_chain.py
 alternative.env
 
 # Database dumps
-logisticsmovies.dump
+dump/logisticsmovies.dump
 
 #folders
 .graveyard/
