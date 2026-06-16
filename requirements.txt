@@ -1,5 +1,5 @@
 # Neo4j and GDS
-graphdatascience
+graphdatascience>=1.22  # 1.22+ required for native AGA projection (gds.v2.graph.project_native)
 neo4j
 python-dotenv
 

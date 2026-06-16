@@ -12,14 +12,14 @@ echo "Installing Jupyter kernel..."
 echo "Configuring credentials (.env)..."
 if [ ! -f .env ]; then
 cat > .env << 'EOF'
-# === Local Neo4j — lessons 3.x ===
+# === Local Neo4j - lessons 3.x ===
 # Pre-configured for the Neo4j container in this Codespace.
 # Reached by its compose service name (the app is no longer bound to neo4j's network).
 NEO4J_URI=bolt://neo4j:7687
 NEO4J_USERNAME=neo4j
 NEO4J_PASSWORD=workshoppassword
 
-# === Aura — lessons 4.x ===
+# === Aura - lessons 4.x ===
 # Fill these in with YOUR AuraDB + Aura API details before running the 4.x notebooks.
 # Leave blank for the 3.x lessons.
 AURA_URI=
@@ -33,7 +33,7 @@ AURA_PROJECT_ID=
 EOF
 echo "  Wrote .env (local Neo4j pre-filled; add Aura creds for the 4.x lessons)."
 else
-echo "  .env already exists — leaving it untouched (preserves any Aura creds you added)."
+echo "  .env already exists - leaving it untouched (preserves any Aura creds you added)."
 fi
 
 echo "Waiting for Neo4j to be ready..."
