@@ -9,26 +9,38 @@ python -m venv .venv
 echo "Installing Jupyter kernel..."
 .venv/bin/python -m ipykernel install --user --name=workshop-gds --display-name="Python (workshop-gds)"
 
-echo "Configuring Neo4j credentials..."
-cat > .env << EOF
-# Neo4j Connection Credentials
-# These are pre-configured for the local Neo4j instance running in this Codespace
-
-# Neo4j Connection URI
-NEO4J_URI=bolt://localhost:7687
-
-# Neo4j Username
+echo "Configuring credentials (.env)..."
+if [ ! -f .env ]; then
+cat > .env << 'EOF'
+# === Local Neo4j — lessons 3.x ===
+# Pre-configured for the Neo4j container in this Codespace.
+# Reached by its compose service name (the app is no longer bound to neo4j's network).
+NEO4J_URI=bolt://neo4j:7687
 NEO4J_USERNAME=neo4j
-
-# Neo4j Password
 NEO4J_PASSWORD=workshoppassword
+
+# === Aura — lessons 4.x ===
+# Fill these in with YOUR AuraDB + Aura API details before running the 4.x notebooks.
+# Leave blank for the 3.x lessons.
+AURA_URI=
+AURA_USERNAME=neo4j
+AURA_PASSWORD=
+AURA_DATABASE=
+AURA_CLIENT_ID=
+AURA_CLIENT_SECRET=
+# Only needed if your Aura account has more than one project.
+AURA_PROJECT_ID=
 EOF
+echo "  Wrote .env (local Neo4j pre-filled; add Aura creds for the 4.x lessons)."
+else
+echo "  .env already exists — leaving it untouched (preserves any Aura creds you added)."
+fi
 
 echo "Waiting for Neo4j to be ready..."
 max_attempts=30
 attempt=0
 while [ $attempt -lt $max_attempts ]; do
-    if wget --quiet --tries=1 --spider http://localhost:7474 2>/dev/null; then
+    if wget --quiet --tries=1 --spider http://neo4j:7474 2>/dev/null; then
         echo "Neo4j is ready!"
         break
     fi

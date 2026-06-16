@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   app:
     build:
@@ -8,7 +6,9 @@ services:
     volumes:
       - ../..:/workspaces:cached
     command: sleep infinity
-    network_mode: service:neo4j
+    # app runs on the default compose network (NOT bound to neo4j's netns).
+    # This gives it standard outbound DNS for the Aura lessons (4.x) while still
+    # reaching the local Neo4j by its service name (neo4j:7687) for the 3.x lessons.
     depends_on:
       - neo4j
 

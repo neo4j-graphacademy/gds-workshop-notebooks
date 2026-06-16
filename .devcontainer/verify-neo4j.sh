@@ -7,7 +7,7 @@ echo "Testing Neo4j connection and plugins..."
 max_attempts=30
 attempt=0
 while [ $attempt -lt $max_attempts ]; do
-    if wget --quiet --tries=1 --spider http://localhost:7474 2>/dev/null; then
+    if wget --quiet --tries=1 --spider http://neo4j:7474 2>/dev/null; then
         break
     fi
     attempt=$((attempt + 1))
@@ -20,7 +20,7 @@ import sys
 import time
 from neo4j import GraphDatabase
 
-uri = "bolt://localhost:7687"
+uri = "bolt://neo4j:7687"
 auth = ("neo4j", "workshoppassword")
 
 print("\n" + "="*50)

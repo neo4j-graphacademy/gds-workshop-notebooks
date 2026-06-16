@@ -6,7 +6,7 @@
   
   "postCreateCommand": "bash .devcontainer/setup.sh",
   
-  "postAttachCommand": "echo '\nNeo4j + GDS running at bolt://localhost:7687\nNeo4j Browser available at http://localhost:7474\nVirtual environment ready at .venv\nAll dependencies installed\n\nNext steps:\n   1. Open notebooks/1_citation_setup.ipynb\n   2. Select kernel: Python (workshop-gds) if not auto-selected\n\n'",
+  "postAttachCommand": "echo '\nLocal Neo4j + GDS (lessons 3.x): pre-set in .env as bolt://neo4j:7687\nNeo4j Browser: http://localhost:7474  (user neo4j / workshoppassword)\nAura (lessons 4.x): add your AURA_* credentials to .env\nVirtual environment ready at .venv — all dependencies installed\n\nNext steps:\n   1. Open the 3.x notebooks for the local-database lessons\n   2. Select kernel: Python (workshop-gds) if not auto-selected\n\n'",
   
   "customizations": {
     "vscode": {
