@@ -43,9 +43,6 @@ htmlcov/
 migrate_supply_chain.py
 alternative.env
 
-# Database dumps
-dump/logisticsmovies.dump
-
 #folders
 .graveyard/
 notebooks/.graveyard/
