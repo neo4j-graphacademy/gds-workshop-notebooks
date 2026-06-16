@@ -33,9 +33,9 @@ try:
     with driver.session() as session:
         result = session.run("RETURN 'Connection successful!' as message")
         record = result.single()
-        print(f"✓ Neo4j Connection: {record['message']}")
+        print(f"[OK] Neo4j Connection: {record['message']}")
 except Exception as e:
-    print(f"✗ Neo4j Connection Failed: {e}")
+    print(f"[FAIL] Neo4j Connection Failed: {e}")
     sys.exit(1)
 
 # Test APOC
@@ -43,9 +43,9 @@ try:
     with driver.session() as session:
         result = session.run("RETURN apoc.version() as version")
         record = result.single()
-        print(f"✓ APOC Plugin: v{record['version']}")
+        print(f"[OK] APOC Plugin: v{record['version']}")
 except Exception as e:
-    print(f"✗ APOC Plugin: Not available - {e}")
+    print(f"[FAIL] APOC Plugin: Not available - {e}")
     sys.exit(1)
 
 # Test GDS
@@ -53,9 +53,9 @@ try:
     with driver.session() as session:
         result = session.run("RETURN gds.version() as version")
         record = result.single()
-        print(f"✓ GDS Plugin: v{record['version']}")
+        print(f"[OK] GDS Plugin: v{record['version']}")
 except Exception as e:
-    print(f"✗ GDS Plugin: Not available - {e}")
+    print(f"[FAIL] GDS Plugin: Not available - {e}")
     sys.exit(1)
 
 # Test APOC function used in notebooks
@@ -63,9 +63,9 @@ try:
     with driver.session() as session:
         result = session.run("RETURN apoc.convert.fromJsonList('[1,2,3]') as test")
         record = result.single()
-        print(f"✓ APOC JSON Functions: Working")
+        print(f"[OK] APOC JSON Functions: Working")
 except Exception as e:
-    print(f"✗ APOC JSON Functions: {e}")
+    print(f"[FAIL] APOC JSON Functions: {e}")
     sys.exit(1)
 
 driver.close()
